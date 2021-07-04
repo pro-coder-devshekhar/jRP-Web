@@ -55,6 +55,19 @@
                     console.log("Error getting documents: ", error);
                 });
                 }
+                function showLedgerS(){
+                var party=$("#PartyNameL").val();
+                firestore.collection("/users/naresh/Sale_Records").where("SoldTo", "==", party)
+                .get()
+                .then(function(querySnapshot) {
+                    querySnapshot.forEach(function(doc) {
+                    console.log(doc.id, " => ", doc.data());
+                    });
+                })
+                .catch(function(error) {
+                    console.log("Error getting documents: ", error);
+                });
+                }
             </script>
             
         <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
@@ -65,7 +78,7 @@
             <select id="PartyNameL" name="PartyNameL">
                 <option>Choose the Name of the party</option>
             </select>
-            <button type="button" onclick="showLedgerR(), showLedgerP()">View Ledger Entries</button><br>
+            <button type="button" onclick="showLedgerR(), showLedgerP(), showLedgerS()">View Ledger Entries</button><br>
                 <a href="../MainPage.html"><button id="gotoMp" type="button">Go Back</button></a>
             </div>
             <table id="myTable">
