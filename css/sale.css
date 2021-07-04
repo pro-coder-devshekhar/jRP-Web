@@ -14,7 +14,9 @@
   letter-spacing: 1px;
   box-shadow: -6px 6px 0 #404040;
   text-decoration: none;
-  border-radius: 15px}
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
   
 .btn:hover {
   top: 3px;
