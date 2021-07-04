@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <style>
+            button{color: green;background: white;border-radius: 0.2em;font-size: 20px;padding:4px;margin-left: 10px;margin: 5px;padding: 15px; border-radius: 10px;}
+            h1{text-align: center;font-family: "Pacifico",cursive;}
+            select{font-size: large;font-family: consolas;}
+        </style>
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>  
+        <title>Ledger Page</title>
+            <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-storage.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js"></script>
+            <script src="../js/index.js"></script>
+            <script>
+            function addListL(){
+                firestore.collection("users/naresh/connections").get().then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    var select = document.getElementById("PartyNameL");
+                    // console.log(`${doc.id} => ${doc.data().GSTIN}`);
+                    // console.log(`${doc.id}`);
+                    var option = document.createElement('option');
+                    option.text = option.value = `${doc.id}`;
+                    select.add(option, 0);
+                    // var option = document.createElement('option');
+                    // option.text = option.value = ${doc.id};
+                    });
+                });
+            }
+            // var db=firebase.firestore();
+            function showLedgerR(){
+                var party=$("#PartyNameL").val();
+                firestore.collection("/users/naresh/Reciept_Records").where("TO", "==", party)
+                .get()
+                .then(function(querySnapshot) {
+                    querySnapshot.forEach(function(doc) {
+                    console.log(doc.id, " => ", doc.data());
+                    });
+                })
+                .catch(function(error) {
+                    console.log("Error getting documents: ", error);
+                });
+                }
+                function showLedgerP(){
+                var party=$("#PartyNameL").val();
+                firestore.collection("/users/naresh/Payment_Records").where("FROM", "==", party)
+                .get()
+                .then(function(querySnapshot) {
+                    querySnapshot.forEach(function(doc) {
+                    console.log(doc.id, " => ", doc.data());
+                    });
+                })
+                .catch(function(error) {
+                    console.log("Error getting documents: ", error);
+                });
+                }
+            </script>
+            
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    </head>
+    <body onload="addListL()">
+        <h1>Ledger: </h1>
+            <div>
+            <select id="PartyNameL" name="PartyNameL">
+                <option>Choose the Name of the party</option>
+            </select>
+            <button type="button" onclick="showLedgerR(), showLedgerP()">View Ledger Entries</button><br>
+                <a href="../MainPage.html"><button id="gotoMp" type="button">Go Back</button></a>
+            </div>
+            <table id="myTable">
+                <tr>
+                  <td>Row1 cell1</td>
+                  <td>Row1 cell2</td>
+                </tr>
+                <tr>
+                  <td>Row2 cell1</td>
+                  <td>Row2 cell2</td>
+                </tr>
+                <tr>
+                  <td>Row3 cell1</td>
+                  <td>Row3 cell2</td>
+                </tr>
+              </table>
+        <script>
+            firebase.auth().onAuthStateChanged(function(user)
+            {
+                if(!user)
+                {
+                    window.location.href="../signin.html";
+                }
+            });
+        </script>
+        </body>
+</html>

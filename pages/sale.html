@@ -1,0 +1,139 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script> 
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-storage.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../css/sale.css">
+        <script src="../js/index.js"></script>
+        <script>
+        function addListS(){
+       
+       firestore.collection("users/naresh/connections").get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+        var select = document.getElementById("Sparty");
+        // console.log(`${doc.id} => ${doc.data()}`);
+        // console.log(`${doc.id}`);
+        var option = document.createElement('option');
+        option.text = option.value = `${doc.id}`;
+        select.add(option, 0);
+        //        var option = document.createElement('option');
+        //        option.text = option.value = ${doc.id};
+        });
+       });
+       }
+       function SgetDetails(){
+        t = $("#tagNo").val();
+        firestore.collection("users/naresh/Products").doc(t).get().then(
+        function(doc){
+            const myData = doc.data();
+            $("#categ").val(myData.Category);
+            $("#goldType").val(myData.GoldType);
+            $("#cost").val(myData.COST);
+            console.log("The details of the Product fetched Successfully");
+       })};
+       function Sgenerate(){
+           var a = $("#Sparty").val();
+           var b = $("#tagNo").val();
+           var c = $("#categ").val();
+           var d = $("#goldType").val();
+           var e = parseInt($("#cost").val());
+            // console.log("Generate Button was clicked");
+            //getting the last Sale Number
+            firestore.collection("users/naresh/Data").doc("Series").get().then(
+                function(doc){
+                    const myDataS = doc.data();
+                    var RefNoS= myDataS.Sale_Series;
+                    var NewRefNoS= RefNoS+1;
+                    console.log(RefNoS);
+                    //generating new sale
+            firestore.collection("users").doc("naresh").collection("Sale_Records").doc(`${NewRefNoS}`).set({
+                            Sale_Number:NewRefNoS,
+                            SoldTo:a,
+                            TagNo:b,
+                            Category:c,
+                            GoldType:d,
+                            Cost:e
+                        })
+                        .then(
+                            function(){
+                                console.log("Sale Saved to FireStore!");}).catch(function (error){
+                                console.log("Got an error: ", error);
+                            });
+            //incrementing the Sale Number
+            firestore.collection("users/naresh/Data").doc("Series").update({
+                            Sale_Series:NewRefNoS
+                        })
+                        .then(function(){console.log("Successfully Sale Series Value Incremented!");})
+                        .catch(function (error){
+                            console.log("Got an error: ", error);
+                        });
+            //updating the balance of party
+            const ref = firestore.collection("users/naresh/connections").doc(a);
+            ref.update({BALANCE: firebase.firestore.FieldValue.increment(e)});
+                
+                
+                }
+            );
+            
+       };
+        </script>
+    </head>
+    <body onload="addListS()">
+        
+    <h1>Generate a Sale: </h1><br>
+<!--    <center><h2 style="color:red;">Note!!  It is <u>Temporarily being used as a Testing Page.</u> </h2></center>-->
+        <div>
+        <table border="3px">
+            <tr>
+            <th>Buyer's Name</th>
+            <th>Tag Number</th>
+            <th>Category Name</th>
+            <th>Gold Type</th>
+            <th>Cost</th>
+            </tr>
+            <tr>
+            <td>
+            <select id="Sparty" name="Sparty">
+                <option>Choose Buyer</option>
+            </select>
+            </td>
+            <td>
+                <input type="text" id="tagNo" size="12" onchange="SgetDetails()">    
+            </td>
+            <td><select id="categ" name="categ">
+                    <option name="Default" value="None">Select Category</option>
+                    <option name="Braclet">Braclet</option>
+                    <option name="Tops">Tops</option>
+                    <option name="Necklace">Necklace</option>
+                </select>
+            </td>
+            <td>
+                <input type="text" id="goldType">    
+            </td>
+            <td>
+                <input type="number" id="cost">
+            </td>
+            </tr>
+        </table><br> 
+
+            <a onclick="Sgenerate()" class="btn" style="background-color: green;color: aliceblue">Generate a Sale</a>
+            <br><br>
+            <a href="../MainPage.html" class="btn">Go Back</a>
+        </div>
+        <script>
+           firebase.auth().onAuthStateChanged(function(user)
+            {
+                if(!user)
+                {
+                    window.location.href="../signin.html";
+                }
+            });
+        </script>
+
+
+</body>
+</html>

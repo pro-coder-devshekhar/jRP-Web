@@ -1,0 +1,34 @@
+html,body{background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100%;}
+    
+input{font-size: 22px;
+	padding: 15px; 
+	border-radius: 10px;}
+
+#div1{margin: auto;border: 
+	4px solid lightblue;
+	padding:40px;
+	width: 500px; 
+	border-radius: 15px;
+	background-color: black; 
+	opacity:0.6}
+
+text{font-size: 22px;
+	font-family: Pacifico;
+	color: white}
+
+h2 {text-align: center;
+	color: white; 
+	font-weight: bold}
+
+#btn-login{color: black;
+	background-color: #FFC312;
+	font-size: 20px;
+	width: 300px;
+	border-radius: 10px;}
+
+#btn-login:hover{color: black;
+	background-color: white}
+	

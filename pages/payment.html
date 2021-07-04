@@ -1,0 +1,230 @@
+<html>
+    <head>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>    
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-storage.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js"></script>
+		<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="../css/payment.css">
+        <script src="../js/index.js"></script>
+        
+        <script>
+       function addListP(){
+       
+       firestore.collection("users/naresh/connections").get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+        var select = document.getElementById("Pparty");
+        // console.log(`${doc.id} => ${doc.data()}`);
+        // console.log(`${doc.id}`);
+        var option = document.createElement('option');
+        option.text = option.value = `${doc.id}`;
+        select.add(option, 0);
+        //        var option = document.createElement('option');
+        //        option.text = option.value = ${doc.id};
+        });
+       });
+       }
+       
+       function Pbal(){
+        a = $("#Pcredit").val();
+        $("#Pdebit").val(a);
+           console.log("the value was changed");
+       };
+            
+       function PgetBal(){
+       
+       Pb = $("#Pparty").val();
+       firestore.collection("users/naresh/connections").doc(Pb).get().then(
+       function(doc){
+        const myData = doc.data();
+        $("#drPbal").val(myData.BALANCE);
+        console.log("The party name was selected");
+       })};
+        
+        function PgetWhereBal()
+            {
+               PwhereBal = $("#Pwhere").val();
+                firestore.collection("users").doc("naresh").get().then(
+                    function(doc){
+                        
+                    const myData2 = doc.data();
+                    $("#crPbal").val(myData2[PwhereBal]);
+                console.log("The debit to area have been selected");
+                    }
+                )
+            };
+
+        function Pgenerate(){
+            console.log("Process Payment Button was clicked");
+            var a=$("#Pparty").val();
+            var b=$("#Pwhere").val();
+            var aBal=parseInt($("#drPbal").val());
+            var bBal=parseInt($("#crPbal").val());
+            var Pamt=parseInt($("#Pcredit").val());
+            // var RefNo;
+//            Narration 1
+//            Narration 2
+            // getting the last Payment Number
+            firestore.collection("users/naresh/Data").doc("Series").get().then(
+                function(doc){
+                        const myDataP = doc.data();
+                        var RefNoP= myDataP.Payment_Series;
+                        // console.log(RefNo);
+                        // shubh=12; //this will not print anything
+                        var NewRefNoP= RefNoP+1;
+                        console.log(RefNoP);
+                        //generating a new Payment
+                        firestore.collection("users").doc("naresh").collection("Payment_Records").doc(`${NewRefNoP}`).set({
+                            Payment_Number:NewRefNoP,
+                            FROM:a,
+                            TO:b,
+                            AMOUNT:Pamt
+                        })
+                        .then(
+                            function(){
+                                console.log("Payment Saved to FireStore!");}).catch(function (error){
+                                console.log("Got an error: ", error);
+                            });
+                        // return shubh;
+                        //incrementing the value of Payment Number
+                        firestore.collection("users/naresh/Data").doc("Series").update({
+                            Payment_Series:NewRefNoP
+                        })
+                        .then(function(){console.log("Successfully Payment Series Value Incremented!");})
+                        .catch(function (error){
+                            console.log("Got an error: ", error);
+                        });
+                        //changing the Balance of a
+                        firestore.collection("users/naresh/connections").doc(a).update({
+                            BALANCE:aBal-Pamt
+                        })
+                        .then(function(){console.log("The Party Balance got updated!");})
+                        .catch(function (error){
+                            console.log("Got an error: ", error);
+                        });
+                        //changing the Balance of b
+                        if(b=="BOB"){
+                            firestore.collection("users").doc("naresh").update({
+                            BOB:bBal+Pamt
+                            })
+                            .then(function(){console.log("The Where Balance got updated!");})
+                            .catch(function (error){
+                                console.log("Got an error: ", error);
+                            });
+                        } else if(b=="CASH"){
+                            firestore.collection("users").doc("naresh").update({
+                            CASH:bBal+Pamt
+                            })
+                            .then(function(){console.log("The Where Balance got updated!");})
+                            .catch(function (error){
+                                console.log("Got an error: ", error);
+                            });
+                        } else{
+                            firestore.collection("users").doc("naresh").update({
+                            // DIFF AC:bBal+Pamt
+                            })
+                            .then(function(){console.log("The Where Balance got updated!");})
+                            .catch(function (error){
+                                console.log("Got an error: ", error);
+                            });
+                        }
+                        
+                    }
+                );
+        };
+        </script>
+        <style>
+            button{color: green;background: white;border-radius: 0.2em;font-size: 20px;padding:4px;margin-left: 10px;margin: 5px;padding: 15px; border-radius: 10px;}
+        </style>
+    </head>
+    <body onload="addListP()">
+	<div class="header">
+		<br>
+		<text>Welcome to jRP Mr. <span id="fillU"></span></text>
+		<a href="../MainPage.html"><button id="gotoMp" type="button">Go Back</button></a>
+	</div>
+    <center><h1>Generate Payment: </h1></center>
+        <br>
+		
+    <center><div>
+        <form>
+            <table border="8px">
+<tr>
+<th>Type</th>
+<th>Party Name</th>
+<th>Balance</th>
+<th>Credit</th>
+<th>Debit</th>
+<th>Narration</th>
+</tr>
+<tr>
+<td>
+<select>
+<option>DR</option>
+</select>
+</td>
+<td>
+<select id="Pparty" name="Pparty" onchange="PgetBal()">
+<option>Choose the Name of Party</option>
+</select>
+</td>
+<td>
+<input style="padding-left: 5px;" type="text" maxlength="9" size=9 id="drPbal">
+</td><td>
+<input style="padding-left: 5px;" type="text" maxlength="9" size=9 onblur="Pbal()" id="Pcredit">
+</td><td>
+<input style="padding-left: 5px;" type="text" maxlength="9" size=9 disabled>
+</td><td>
+<input style="padding-left: 5px;" type="text" size=9>
+</td>
+</tr>                
+<tr>
+<td>
+<select>
+<option>CR</option>
+</select>
+</td>
+<td>
+<select id="Pwhere" onchange="PgetWhereBal()">
+<option>Choose where to Credit</option>
+<option>BOB</option>
+<option>CASH</option>
+<option>DIFF AC</option>
+</select>
+</td>
+<td>
+<input style="padding-left: 5px;" type="text" maxlength="9" size=9 id="crPbal">
+</td>
+<td>
+<input style="padding-left: 5px;" type="text" maxlength="9" size=9 disabled>
+</td>
+<td>
+<input style="padding-left: 5px;" type="text" maxlength="9" size=9 id="Pdebit">
+</td>
+<td>
+<input style="padding-left: 5px;" type="text" size=9>
+</td>
+</tr>                
+            
+            
+            </table> 
+            <br><button id="generate" type="button" onclick="Pgenerate()">Process Payment</button>
+        </form>
+    </div></center>
+<!--        <script src="../js/index.js"></script>-->
+        <script>
+           firebase.auth().onAuthStateChanged(function(user)
+            {
+                if(!user)
+                {
+                    window.location.href="../signin.html";
+                }
+            });
+        </script>
+
+
+</body>
+</html>

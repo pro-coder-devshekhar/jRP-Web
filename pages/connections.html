@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../css/conn.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>  
+    <title>Testing Form</title>
+    <link rel="stylesheet" type="text/css" href="temp2.css">
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-storage.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js"></script>
+    <script>
+        function loadM(){
+            nameM=$("#freshNameM").val();
+            firestore.collection("users/naresh/connections").doc(nameM).get().then(
+       function(doc){
+        const myData = doc.data();
+//        console.log(myData.NAME);
+        $("#freshAddrM").val(myData.ADDRESS);
+        $("#freshGstinM").val(myData.GSTIN);
+        $("#BalanceM").val(myData.BALANCE);
+        console.log("The party which was selected is "+nameM);
+       })};
+        function addListM(){
+     firestore.collection("users/naresh/connections").get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+        var select = document.getElementById("freshNameM");
+        console.log(`${doc.id} => ${doc.data().GSTIN}`);
+        console.log(`${doc.id}`);
+        var option = document.createElement('option');
+        option.text = option.value = `${doc.id}`;
+        select.add(option, 0);
+//        var option = document.createElement('option');
+//        option.text = option.value = ${doc.id};
+    });
+});
+       }
+    </script>
+    </head>
+    <body onload="addListM()">
+        <script>
+        jQuery(document).ready(function($) {
+	tab = $('.tabs h3 a');
+
+	tab.on('click', function(event) {
+		event.preventDefault();
+		tab.removeClass('active');
+		$(this).addClass('active');
+
+		tab_content = $(this).attr('href');
+		$('div[id$="tab-content"]').removeClass('active');
+		$(tab_content).addClass('active');
+	});
+});
+        </script>
+    <div class="form-wrap">
+		<div class="tabs">
+			<h3 class="signup-tab"><a class="active" href="#signup-tab-content">Create New </a></h3>
+			<h3 class="login-tab"><a href="#login-tab-content">Modify Existing</a></h3>
+		</div><!--.tabs-->
+
+		<div class="tabs-content">
+			<div id="signup-tab-content" class="active">
+<!--				<form class="signup-form" action="" method="post">-->
+                <input type="text" id="freshName" name="freshName" size="25" placeholder="Name">
+            <input type="text" id="freshGstin" name="freshGstin" size="25" placeholder="GSTIN"><br>
+            <textarea type="text" id="freshAddr" name="freshAddr" placeholder="Address" size="25"></textarea><br>
+            <input type="text" id="Balance" name="Balance" size="25" placeholder="Balance"><br>
+            <button id="createConn" type="button">Create Connections</button>
+                    <a href="../MainPage.html"><button id="gotoMp" type="button">Go Back</button></a>
+<!--				</form>.login-form-->
+			</div><!--.signup-tab-content-->
+
+			<div id="login-tab-content">
+<!--                <form class="login-form" action="" method="post">-->
+            <select id="freshNameM" name="freshNameM" onchange="loadM()">
+                <option>Choose the Name of the party</option>
+                </select>
+            <input type="text" id="freshGstinM" name="freshGstinM" size="25" placeholder="GSTIN"><br>
+            <textarea type="text" id="freshAddrM" name="freshAddrM" placeholder="Address" size="25"></textarea><br>
+            <input type="text" id="BalanceM" name="BalanceM" size="25" placeholder="Balance"><br>
+            <button id="modifyConn" type="button">Modify Connections</button>
+                    <a href="../MainPage.html"><button id="gotoMpM" type="button">Go Back</button></a>
+<!--                </form>-->
+			</div><!--.login-tab-content-->
+		</div><!--.tabs-content-->
+	</div><!--.form-wrap-->
+    <script src="../js/index.js"></script>
+        <script>
+           firebase.auth().onAuthStateChanged(function(user)
+            {
+                if(!user)
+                {
+                    window.location.href="../signin.html";
+                }
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>  
+<!--
+    <script>
+    function addList(){
+    var select = document.getElementById("year");
+    for(var i = 2011; i >= 1900; --i) {
+    var option = document.createElement('option');
+    option.text = option.value = i;
+    select.add(option, 0);
+      }
+     }
+    </script>
+-->
+    <style>
+    *{font-family: consolas}
+    select{font-size: 26px;padding-left: 15px;border-bottom-left-radius: 10px;border-top-right-radius: 10px;}
+    input{font-size: 26px;color: red;border:3px black solid}
+    
+    </style>
+    </head>
+    <body>
+<!--Usage of onchange Attribute allowed me to trigger a function as soon as the value of the drop-down menu is changed.-->
+       <select id="color" name="color" onchange="changeIt()">
+            <option value="red" color="red" id="red">red</option>
+            <option value="blue" color="blue" id="blue">blue</option>
+            <option value="black" color="black" id="black">black</option>
+            <option value="orange" color="orange" id="orange">orange</option>
+       </select>
+       <input id="textF" type="text" placeholder="Color of the text should change" size="40">
+<!--       <button type="button" id="changer" onclick="changeIt()">Change</button>-->
+       <script>
+       function changeIt(){
+       var a = $("#color").val();
+       if(a=="red"){$("#textF").css("color","red");}
+       else if(a=="black"){$("#textF").css("color","black");}
+       else if(a=="blue"){$("#textF").css("color","blue");}
+       else if(a=="orange"){$("#textF").css("color","orange");}
+       }
+        function changeThat(){
+        if($("#textF").val()=="Orange"){
+            
+        }
+        }
+       </script>
+    </body>
+</html> 

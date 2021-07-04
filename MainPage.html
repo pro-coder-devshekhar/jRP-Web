@@ -1,0 +1,72 @@
+<!Doctype html>
+<html>
+<head>
+        <title>Main</title>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>    
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-storage.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/MainPage.css">
+		<link rel="stylesheet" type="text/css" href="css/all.css">
+    </head>
+    <body>	
+	<div id="div1">
+		<br>
+		<text>Welcome to jRP Mr. <span id="fillU"></span></text>
+		<button id="btn-logout" type="button">Logout </button>
+		<br><br><br>
+	</div>
+	<br>
+    <center><div id="realForm">
+		<br><br>
+		<center>
+		<div id="column1">
+		<i class="fas fa-receipt" style="font-size: 200px;"></i><br>
+        <a href="pages/reciept.html"><button type="button" id="reciept">1. Receipt</button></a>
+		</div>
+		<div id="column1">
+		<i class="fas fa-money-bill-wave-alt" style="font-size: 200px;"></i><br>
+        <a href="pages/payment.html"><button type="button" id="payment">2. Payment</button></a>
+		</div>
+		<div id="column1">
+		<img src="https://ak.picdn.net/shutterstock/videos/13809965/thumb/4.jpg" height="200" width="200"><br>
+        <a href="pages/sale.html"><button type="button" id="sale">3. Sale</button></a>
+		</div>
+		<!-- <div id="column2">
+		<img src="./res/return.png" height="200" width="200"><br>
+        <a href="pages/return.html"><button type="button" id="return">4. Return</button></a>
+		</div> -->
+		<div id="column2">
+		<img src="https://i1.wp.com/www.iedunote.com/img/1343/what-is-accounting-ledger.png?resize=300%2C208&quality=100&ssl=1" height="200" width="200"><br>
+        <a href="pages/ledger.html"><button type="button" id="ledger">4. Ledger</button></a>
+		</div>
+		<!-- <div id="column2">
+		<i class="fas fa-shopping-bag" style="font-size: 200px;"></i><br>
+        <a href="pages/purchase.html"><button type="button" id="ledger">5. Purchase</button></a>
+        </div> -->
+		<!-- <div id="column3"> -->
+        <div id="column2">
+		<img src="css/Connections.jpg" height="200" width="200"><br>
+        <a href="pages/connections.html"><button type="button" id="manage">5. Manage Connections</button></a><br>
+        </div>
+        <!--		<input type="text" id="saver" size="29"><button id="btn-save" type="button">Save->FireBase FireStore</button>		-->
+		</center>
+    </div></center>
+<!--        <a id="btn-logout">Logout</a>-->
+        <script src="js/index.js"></script>
+        <script>
+           firebase.auth().onAuthStateChanged(function(user)
+            {
+                if(!user)
+                {
+                    window.location.href="signin.html";
+                }
+            });
+        </script>
+	
+    </body>
+</html>

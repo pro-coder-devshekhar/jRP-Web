@@ -1,0 +1,46 @@
+#gotoMp{color: black;
+	width:200px;
+	background:#FFCC33; 
+	border-radius: 15px;
+	font-size: 20px;
+	padding: 10px;
+	position: absolute;
+	right: 30px;
+	box-shadow: 10px 10px #404040;}
+	
+#gotoMp:hover{color: black;
+	background-color: #FF9933}
+	
+text{font-size: 26px;
+	margin: 5px;}
+	
+text,#gotoMp,#btn-save,#generate{
+	font-family: "Pacifico",cursive;}
+	
+.header{background-image: url('https://www.appmachine.com/wp-content/uploads/2016/02/No-Branding-Header-Background-1.jpg');
+	height:110px;
+	background-size: cover;
+	background-repeat: no-repeat;}
+
+th{background-color: #FF9933;
+	height: 60px;
+    font-size: 24px;}
+
+/* p{color: ;} */
+
+input{width: 200px;
+	height: 60px;
+	font-size:18}
+
+option,select{font-size:18px}
+
+#generate{color: black;
+	width:200px;
+	background:#66CC33; 
+	border-radius: 15px;
+	font-size: 20px;
+	padding: 10px;
+	box-shadow: 10px 10px #404040;}
+	
+#generate:hover{color: black;
+	background-color: #339933}
