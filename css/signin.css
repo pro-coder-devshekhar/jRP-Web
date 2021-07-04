@@ -1,34 +1,43 @@
-html,body{background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+html,body{background: #34495e;
 	background-size: cover;
 	background-repeat: no-repeat;
 	height: 100%;}
     
 input{font-size: 22px;
 	padding: 15px; 
-	border-radius: 10px;}
+	border-radius: 30px;
+	background-color: #191919;
+	border: 4px solid #3498db;
+	text-align: center;
+	color:white;
+	transition:0.25s}
+	
+input:focus{width:580;}
 
-#div1{margin: auto;border: 
-	4px solid lightblue;
+#div1{margin: auto;
+	border:4px solid;
 	padding:40px;
-	width: 500px; 
+	width: 550px; 
 	border-radius: 15px;
-	background-color: black; 
-	opacity:0.6}
+	background-color: #191919;
+	position:relative;
+	top:170px}
 
-text{font-size: 22px;
+text{font-size: 28px;
 	font-family: Pacifico;
-	color: white}
+	color: white;}
 
 h2 {text-align: center;
 	color: white; 
 	font-weight: bold}
 
-#btn-login{color: black;
-	background-color: #FFC312;
-	font-size: 20px;
-	width: 300px;
-	border-radius: 10px;}
+.btn{color: white;
+	background-color: #191919;
+	border: 4px solid #4CAF50;
+	font-size: 25px;
+	width: 200px;
+	border-radius: 30px;}
 
 #btn-login:hover{color: black;
-	background-color: white}
+	background-color: #00b33c;}
 	

@@ -5,6 +5,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>  
     <title>Testing Form</title>
     <link rel="stylesheet" type="text/css" href="temp2.css">
+	<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
@@ -54,6 +55,12 @@
 	});
 });
         </script>
+		<div class="header">
+			<br>
+			<text>Welcome to jRP Mr. <span id="fillU"></span></text>
+			<a href="../MainPage.html"><button id="gotoMp" class="btn" type="button">Go Back</button></a>
+		</div><br><br>
+		<h1>Manage Connections</h1>
     <div class="form-wrap">
 		<div class="tabs">
 			<h3 class="signup-tab"><a class="active" href="#signup-tab-content">Create New </a></h3>
@@ -63,12 +70,11 @@
 		<div class="tabs-content">
 			<div id="signup-tab-content" class="active">
 <!--				<form class="signup-form" action="" method="post">-->
-                <input type="text" id="freshName" name="freshName" size="25" placeholder="Name">
-            <input type="text" id="freshGstin" name="freshGstin" size="25" placeholder="GSTIN"><br>
-            <textarea type="text" id="freshAddr" name="freshAddr" placeholder="Address" size="25"></textarea><br>
-            <input type="text" id="Balance" name="Balance" size="25" placeholder="Balance"><br>
-            <button id="createConn" type="button">Create Connections</button>
-                    <a href="../MainPage.html"><button id="gotoMp" type="button">Go Back</button></a>
+            <input type="text" id="freshName" name="freshName" size="25" placeholder="Name">
+            <input type="text" id="freshGstin" name="freshGstin" size="25" placeholder="GSTIN">
+            <textarea type="text" id="freshAddr" name="freshAddr" placeholder="Address" size="25"></textarea>
+            <input type="text" id="Balance" name="Balance" size="25" placeholder="Balance"><br><br>
+            <center><button id="createConn" class="btn" type="button">Create Connections</button></center>
 <!--				</form>.login-form-->
 			</div><!--.signup-tab-content-->
 
@@ -77,11 +83,10 @@
             <select id="freshNameM" name="freshNameM" onchange="loadM()">
                 <option>Choose the Name of the party</option>
                 </select>
-            <input type="text" id="freshGstinM" name="freshGstinM" size="25" placeholder="GSTIN"><br>
+            <input type="text" id="freshGstinM" name="freshGstinM" size="25" placeholder="GSTIN">
             <textarea type="text" id="freshAddrM" name="freshAddrM" placeholder="Address" size="25"></textarea><br>
-            <input type="text" id="BalanceM" name="BalanceM" size="25" placeholder="Balance"><br>
-            <button id="modifyConn" type="button">Modify Connections</button>
-                    <a href="../MainPage.html"><button id="gotoMpM" type="button">Go Back</button></a>
+            <input type="text" id="BalanceM" name="BalanceM" size="25" placeholder="Balance"><br><br>
+            <center><button id="modifyConn" class="btn" type="button">Modify Connections</button></center>
 <!--                </form>-->
 			</div><!--.login-tab-content-->
 		</div><!--.tabs-content-->

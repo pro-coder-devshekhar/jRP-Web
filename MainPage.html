@@ -16,45 +16,64 @@
     <body>	
 	<div id="div1">
 		<br>
-		<text>Welcome to jRP Mr. <span id="fillU"></span></text>
+		<text id="t1">Welcome to jRP Mr. <span id="fillU"></span></text>
 		<button id="btn-logout" type="button">Logout </button>
-		<br><br><br>
+		<br><br><br><br>
 	</div>
 	<br>
     <center><div id="realForm">
 		<br><br>
-		<center>
-		<div id="column1">
-		<i class="fas fa-receipt" style="font-size: 200px;"></i><br>
-        <a href="pages/reciept.html"><button type="button" id="reciept">1. Receipt</button></a>
-		</div>
-		<div id="column1">
-		<i class="fas fa-money-bill-wave-alt" style="font-size: 200px;"></i><br>
-        <a href="pages/payment.html"><button type="button" id="payment">2. Payment</button></a>
-		</div>
-		<div id="column1">
-		<img src="https://ak.picdn.net/shutterstock/videos/13809965/thumb/4.jpg" height="200" width="200"><br>
-        <a href="pages/sale.html"><button type="button" id="sale">3. Sale</button></a>
-		</div>
-		<!-- <div id="column2">
-		<img src="./res/return.png" height="200" width="200"><br>
-        <a href="pages/return.html"><button type="button" id="return">4. Return</button></a>
-		</div> -->
-		<div id="column2">
-		<img src="https://i1.wp.com/www.iedunote.com/img/1343/what-is-accounting-ledger.png?resize=300%2C208&quality=100&ssl=1" height="200" width="200"><br>
-        <a href="pages/ledger.html"><button type="button" id="ledger">4. Ledger</button></a>
-		</div>
-		<!-- <div id="column2">
-		<i class="fas fa-shopping-bag" style="font-size: 200px;"></i><br>
-        <a href="pages/purchase.html"><button type="button" id="ledger">5. Purchase</button></a>
-        </div> -->
-		<!-- <div id="column3"> -->
-        <div id="column2">
-		<img src="css/Connections.jpg" height="200" width="200"><br>
-        <a href="pages/connections.html"><button type="button" id="manage">5. Manage Connections</button></a><br>
-        </div>
-        <!--		<input type="text" id="saver" size="29"><button id="btn-save" type="button">Save->FireBase FireStore</button>		-->
-		</center>
+		<table id="tb1">
+		<tr>
+			<td>
+				<div id="column1">
+				<img src="https://as2.ftcdn.net/jpg/02/10/55/15/500_F_210551556_gpiKP1jr7hkjxkclvldly0gPnZmzbzE8.jpg" height="200" width="200"><br>
+				<center><a href="pages/reciept.html"><button type="button" id="reciept">1. Receipt</button></a></center>
+				</div>
+			</td>
+			<td>
+				<div id="column1">
+				<img src="https://s31898.pcdn.co/wp-content/uploads/2020/01/Digital-payment-e1578290379188.jpg" height="200" width="200"><br>
+				<center><a href="pages/payment.html"><button type="button" id="payment">2. Payment</button></a></center>
+				</div>
+			</td>
+			<td>
+				<!-- For later use https://img.freepik.com/free-vector/handmade-jewelry-abstract-concept-illustration-self-made-jewelry-designer-startup-handmade-product-book-online-handcrafted-buying-artisan-goods-custom-order_335657-149.jpg?size=338&ext=jpg -->
+				<div id="column1">
+				<img src="css/sale.jpg" height="200" width="200"><br>
+				<center><a href="pages/sale.html"><button type="button" id="sale">3. Sale</button></a></center>
+				</div>
+			</td>
+		</tr>
+		</table><br>
+		<table id="tb2">
+				<!-- <div id="column2">
+				<img src="./res/return.png" height="200" width="200"><br>
+				<a href="pages/return.html"><button type="button" id="return">4. Return</button></a>
+				</div> -->
+		<tr>
+			<td>
+				<div id="column2">
+				<img src="https://i1.wp.com/www.iedunote.com/img/1343/what-is-accounting-ledger.png?resize=300%2C208&quality=100&ssl=1" height="200" width="200"><br>
+				<center><a href="pages/ledger.html"><button type="button" id="ledger">4. Ledger</button></a></center>
+				</div>
+			</td>
+			
+				<!-- <div id="column2">
+				<i class="fas fa-shopping-bag" style="font-size: 200px;"></i><br>
+				<a href="pages/purchase.html"><button type="button" id="ledger">5. Purchase</button></a>
+				</div> -->
+			
+			<td>
+				<!-- <div id="column3"> -->
+				<div id="column2">
+				<img src="css/Connections.jpg" height="200" width="200"><br>
+				<center><a href="pages/connections.html"><button type="button" id="manage">5. Manage Connections</button></a><br></center>
+				</div>
+			</td>
+		</tr>
+				<!--		<input type="text" id="saver" size="29"><button id="btn-save" type="button">Save->FireBase FireStore</button>		-->
+		</table>
     </div></center>
 <!--        <a id="btn-logout">Logout</a>-->
         <script src="js/index.js"></script>

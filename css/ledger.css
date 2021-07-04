@@ -84,7 +84,7 @@ text{font-size: 26px;
 	
 text{font-family: "Pacifico",cursive;}
 	
-th{background-color: #a6ff4d;
+th{background-color: #ff9980;
 	height: 60px;
 	font-size: 24px;}
 
@@ -92,4 +92,4 @@ input{width: 200px;
 	height: 60px;
 	font-size:18}
 
-option,select{font-size:18px}
+option,select{font-size:22px}

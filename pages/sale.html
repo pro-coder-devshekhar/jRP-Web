@@ -6,7 +6,7 @@
         <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-storage.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js"></script>
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="../css/sale.css">
         <script src="../js/index.js"></script>
         <script>
@@ -83,11 +83,16 @@
         </script>
     </head>
     <body onload="addListS()">
-        
-    <h1>Generate a Sale: </h1><br>
+	
+    <div class="header">
+		<br>
+		<text>Welcome to jRP Mr. <span id="fillU"></span></text>
+		<a href="../MainPage.html" class="btn" id="gotoMp">Go Back</a>
+	</div>    
+    <center><h1>Generate a Sale: </h1><br></center>
 <!--    <center><h2 style="color:red;">Note!!  It is <u>Temporarily being used as a Testing Page.</u> </h2></center>-->
         <div>
-        <table border="3px">
+        <center><table border="3px">
             <tr>
             <th>Buyer's Name</th>
             <th>Tag Number</th>
@@ -118,11 +123,11 @@
                 <input type="number" id="cost">
             </td>
             </tr>
-        </table><br> 
+        </table><br>
 
-            <a onclick="Sgenerate()" class="btn" style="background-color: green;color: aliceblue">Generate a Sale</a>
+            <a onclick="Sgenerate()" class="btn" style="background-color: #339933;color: aliceblue">Generate a Sale</a>
             <br><br>
-            <a href="../MainPage.html" class="btn">Go Back</a>
+            </center>
         </div>
         <script>
            firebase.auth().onAuthStateChanged(function(user)

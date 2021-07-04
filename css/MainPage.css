@@ -1,7 +1,10 @@
-html,body{background-image: url('https://www.investmentexecutive.com/wp-content/uploads/sites/3/2018/01/800x600_Stock-market-background-design_52489173.jpg');
+#div1{background-image: url('https://www.pcc.edu/web-services/wp-content/uploads/sites/6/2017/05/default-header-overlay.png');
 	background-size: cover;
-	background-repeat: no-repeat;
-	height: 100%;}
+	background-repeat: no-repeat;}
+	
+body{background-color:#FFFFCC}
+	
+#t1{color:#ffc34d;}
 	
 #btn-logout{color: black;
 	width:200px;
@@ -38,41 +41,11 @@ input{font-size: 22px;
 	color: white;
 	background-color: #660099}
 	
-#realForm{
-	border: 3px solid black;
-	margin: 4px;padding: 4px;
-	border-radius: 20px;
-	width: 1400px;
-	background-color:white;
+#realForm{width: 1500px;
+	background-color:#FFFFCC;
 	opacity:0.95;
 	height:850px;
-	position:relative;
-    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-    -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;}
-
-#realForm:before, #realForm:after{
-    content:"";
-    position:absolute;
-    z-index:-1;
-    -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
-    -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
-    box-shadow:0 0 20px rgba(0,0,0,0.8);
-    top:10px;
-    bottom:10px;
-    left:0;
-    right:0;
-    -moz-border-radius:100px / 10px;
-    border-radius:100px / 10px;}
-
-#realForm:after{
-    right:10px;
-    left:auto;
-    -webkit-transform:skew(8deg) rotate(3deg);
-    -moz-transform:skew(8deg) rotate(3deg);
-    -ms-transform:skew(8deg) rotate(3deg);
-    -o-transform:skew(8deg) rotate(3deg);
-    transform:skew(8deg) rotate(3deg);}
+	position:relative;}
 	
 text{font-size: 26px;
 	margin: 5px;}
@@ -80,10 +53,9 @@ text{font-size: 26px;
 text,#btn-logout,#btn-save{
 	font-family: "Pacifico",cursive;}
 	
-#column1,#column2{
-	float:left;
-	width:33.33%;}
-	
-#column3{
-	float:left;
-	width:100%;}
+th,td{padding:50px}
+
+#column1,#column2{border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 10px 18px #888888;
+  background-color:white}

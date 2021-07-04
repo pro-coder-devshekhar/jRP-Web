@@ -81,16 +81,23 @@
             </script>
             
         <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="../css/ledger.css">
     </head>
     <body onload="addListL()">
+		<div class="header">
+			<br>
+			<text>Welcome to jRP Mr. <span id="fillU"></span></text>
+			<a href="../MainPage.html"><button id="gotoMp" class="btn" type="button">Go Back</button></a>
+		</div>
         <h1>Ledger: </h1>
             <div>
+			<center>
             <select id="PartyNameL" name="PartyNameL">
                 <option>Choose the Name of the party</option>
             </select>
-            <button type="button" onclick="showLedgerR(), showLedgerP(), showLedgerS()">View Ledger Entries</button><br>
-                <a href="../MainPage.html"><button id="gotoMp" type="button">Go Back</button></a>
-            </div>
+            <button type="button" class="btn" style="background-color: #339933;color: aliceblue" onclick="showLedgerR(), showLedgerP(), showLedgerS()">View Ledger Entries</button><br>
+            </center>
+			</div>
             <table id="myTable">
                 <tr>
                   <th>Amount</th>
