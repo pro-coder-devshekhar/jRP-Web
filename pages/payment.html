@@ -99,7 +99,7 @@
                         });
                         //changing the Balance of a
                         firestore.collection("users/naresh/connections").doc(a).update({
-                            BALANCE:aBal-Pamt
+                            BALANCE:aBal+Pamt
                         })
                         .then(function(){console.log("The Party Balance got updated!");})
                         .catch(function (error){
@@ -108,7 +108,7 @@
                         //changing the Balance of b
                         if(b=="BOB"){
                             firestore.collection("users").doc("naresh").update({
-                            BOB:bBal+Pamt
+                            BOB:bBal-Pamt
                             })
                             .then(function(){console.log("The Where Balance got updated!");})
                             .catch(function (error){
@@ -116,7 +116,7 @@
                             });
                         } else if(b=="CASH"){
                             firestore.collection("users").doc("naresh").update({
-                            CASH:bBal+Pamt
+                            CASH:bBal-Pamt
                             })
                             .then(function(){console.log("The Where Balance got updated!");})
                             .catch(function (error){
@@ -124,7 +124,7 @@
                             });
                         } else{
                             firestore.collection("users").doc("naresh").update({
-                            // DIFF AC:bBal+Pamt
+                            // DIFF AC:bBal-Pamt
                             })
                             .then(function(){console.log("The Where Balance got updated!");})
                             .catch(function (error){

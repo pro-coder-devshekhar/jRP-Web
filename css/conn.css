@@ -202,7 +202,7 @@ a:active.btn:after {
   top: 1px;
   left: 1px;}
   
-.header{background-image: url('https://www.appmachine.com/wp-content/uploads/2016/02/No-Branding-Header-Background-1.jpg');
+.header{background-image: url('../res/back3.png');
 	height:110px;
 	background-size: cover;
 	background-repeat: no-repeat;}

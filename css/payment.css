@@ -87,7 +87,7 @@ text{font-size: 26px;
 	margin: 5px;
 	font-family: "Pacifico",cursive;}
 	
-.header{background-image: url('https://www.appmachine.com/wp-content/uploads/2016/02/No-Branding-Header-Background-1.jpg');
+.header{background-image: url("../res/back2.png");
 	height:110px;
 	background-size: cover;
 	background-repeat: no-repeat;}
