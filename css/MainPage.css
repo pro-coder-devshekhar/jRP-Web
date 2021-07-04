@@ -1,8 +1,11 @@
+
+
 #div1{background-image: url('https://www.pcc.edu/web-services/wp-content/uploads/sites/6/2017/05/default-header-overlay.png');
 	background-size: cover;
-	background-repeat: no-repeat;}
+	background-repeat: no-repeat;
+	height:100px}
 	
-body{background-color:#FFFFCC}
+body{background-color:#FFFFCC;}
 	
 #t1{color:#ffc34d;}
 	
@@ -24,7 +27,6 @@ body{background-color:#FFFFCC}
 	
 button{color: green;
 	background: white;
-	border-radius: 0.2em;
 	font-size: 20px;
 	padding:4px;
 	margin-left: 10px;
@@ -37,17 +39,19 @@ input{font-size: 22px;
 	border-radius: 10px;}
 	
 #reciept,#payment,#sale, #return, #ledger, #manage{
-	color: lavenderblush;background:darkorchid;
-	font-family: "Pacifico",cursive;}
+	color: lavenderblush;
+	background:#3399ff;
+	font-family: "Raleway", sans-serif;
+	border-radius: 0px;
+	border:0}
 	
 #reciept:hover,#payment:hover,#sale:hover, #return:hover, #ledger:hover, #manage:hover{
 	color: white;
-	background-color: #660099}
+	background-color: #0066cc}
 	
 #realForm{width: 1500px;
 	background-color:#FFFFCC;
 	opacity:0.95;
-	height:850px;
 	position:relative;}
 	
 text{font-size: 26px;
@@ -56,7 +60,10 @@ text{font-size: 26px;
 text,#btn-logout,#btn-save{
 	font-family: "Pacifico",cursive;}
 	
-th,td{padding:50px}
+th,td{padding-top:40px;
+	padding-left:50px;
+	padding-right:50px;
+	padding-bottom:0px}
 
 #column1,#column2{
 	border: 1px solid;

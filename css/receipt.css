@@ -1,20 +1,85 @@
-#gotoMp{color: black;
-	width:200px;
-	background:#FFCC33; 
-	border-radius: 15px;
-	font-size: 20px;
-	padding: 10px;
-	position: absolute;
-	right: 30px;
-	box-shadow: 5px 10px 10px #404040;}
-	
-#gotoMp:hover{color: black;
-	background-color: #FF9933}
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,100,200,300);
+
+.btn{top: 0;
+  left: 0;
+  transition: all .15s linear 0s;
+  position: relative;
+  display: inline-block;
+  padding: 15px 25px;
+  background-color: #FFCC33;
+  text-transform: uppercase;
+  color: #404040;
+  font-family: arial;
+  letter-spacing: 1px;
+  box-shadow: -6px 6px 0 #404040;
+  text-decoration: none;
+  border-radius: 15px;
+  border-top-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+	border-top-left-radius: 0px;
+	border-bottom-right-radius: 0px;}
+  
+#gotoMp{position: absolute;
+	left:1350px;
+	top:30px;
+	font-weight:bolder;}
+  
+.btn:hover {
+  top: 3px;
+  left: -3px;
+  box-shadow: -3px 3px 0 #404040;}
+  
+.btn:hover::after {
+  top: 1px;
+  left: -2px;
+  width: 4px;
+  height: 4px;}
+  
+.btn:hover::before {
+  bottom: -2px;
+  right: 1px;
+  width: 4px;
+  height: 4px;}
+  
+.btn::after {
+  transition: all .15s linear 0s;
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: -4px;
+  width: 8px;
+  height: 8px;
+  background-color: #404040;
+  transform: rotate(45deg);
+  z-index: -1;}
+  
+.btn::before {
+  transition: all .15s linear 0s;
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  right: 2px;
+  width: 8px;
+  height: 8px;
+  background-color: #404040;
+  transform: rotate(45deg);
+  z-index: -1;}
+
+a:active.btn {
+  top: 6px;
+  left: -6px;
+  box-shadow: none;}
+  
+a:active.btn:before {
+  bottom: 1px;
+  right: 1px;}
+  
+a:active.btn:after {
+  top: 1px;
+  left: 1px;}
 	
 text{font-size: 26px;
-	margin: 5px;}
-	
-text,#gotoMp,#btn-save,#generate{
+	margin: 5px;
 	font-family: "Pacifico",cursive;}
 	
 .header{background-image: url('https://www.appmachine.com/wp-content/uploads/2016/02/No-Branding-Header-Background-1.jpg');
@@ -30,19 +95,21 @@ input{width: 200px;
 	height: 60px;
 	font-size:18}
 
-table{
-	box-shadow: 5px 10px 18px #888888;
-}
+table{box-shadow: 5px 10px 18px #888888;}
+	
+body{font: 16px/26px "Raleway", sans-serif;
+	color:black;}
 
 option,select{font-size:18px}
 
 #generate{color: black;
-	width:200px;
-	background:#66CC33; 
-	border-radius: 15px;
-	font-size: 20px;
-	padding: 10px;
-	box-shadow: 10px 10px #404040;}
+	background-color: #339933;
+	font-size: 18px;
+	padding: 15px;
+	color: aliceblue;
+	font-weight:bold;}
 	
-#generate:hover{color: black;
-	background-color: #339933}
+#generate:hover{color: white;
+	background-color: #206020}
+	
+#gotoMp:hover{background-color:#e6ac00}

@@ -57,9 +57,9 @@
         </script>
 		<div class="header">
 			<br>
-			<text>Welcome to jRP Mr. <span id="fillU"></span></text>
-			<a href="../MainPage.html"><button id="gotoMp" class="btn" type="button">Go Back</button></a>
-		</div><br><br>
+			<text>...jRP</text>
+			<a href="../MainPage.html" id="gotoMp" class="btn" type="button">Go Back</a>
+		</div><br>
 		<h1>Manage Connections</h1>
     <div class="form-wrap">
 		<div class="tabs">
@@ -70,23 +70,23 @@
 		<div class="tabs-content">
 			<div id="signup-tab-content" class="active">
 <!--				<form class="signup-form" action="" method="post">-->
-            <input type="text" id="freshName" name="freshName" size="25" placeholder="Name">
+            <center><input type="text" id="freshName" name="freshName" size="25" placeholder="Name">
             <input type="text" id="freshGstin" name="freshGstin" size="25" placeholder="GSTIN">
             <textarea type="text" id="freshAddr" name="freshAddr" placeholder="Address" size="25"></textarea>
             <input type="text" id="Balance" name="Balance" size="25" placeholder="Balance"><br><br>
-            <center><button id="createConn" class="btn" type="button">Create Connections</button></center>
+            <a id="createConn" class="btn" type="button">Create Connections</a></center>
 <!--				</form>.login-form-->
 			</div><!--.signup-tab-content-->
 
 			<div id="login-tab-content">
 <!--                <form class="login-form" action="" method="post">-->
-            <select id="freshNameM" name="freshNameM" onchange="loadM()">
+            <center><select id="freshNameM" name="freshNameM" onchange="loadM()">
                 <option>Choose the Name of the party</option>
                 </select>
             <input type="text" id="freshGstinM" name="freshGstinM" size="25" placeholder="GSTIN">
             <textarea type="text" id="freshAddrM" name="freshAddrM" placeholder="Address" size="25"></textarea><br>
             <input type="text" id="BalanceM" name="BalanceM" size="25" placeholder="Balance"><br><br>
-            <center><button id="modifyConn" class="btn" type="button">Modify Connections</button></center>
+            <a id="modifyConn" class="btn" type="button">Modify Connections</a></center>
 <!--                </form>-->
 			</div><!--.login-tab-content-->
 		</div><!--.tabs-content-->

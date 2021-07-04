@@ -1,16 +1,5 @@
 <html>
     <head>
-        <style>
-            button{color: green;background: white;border-radius: 0.2em;font-size: 20px;padding:4px;margin-left: 10px;margin: 5px;padding: 15px; border-radius: 10px;}
-            h1{text-align: center;font-family: "Pacifico",cursive;}
-            select{font-size: large;font-family: consolas;}
-            table{width: 100%;margin: 20px 0;border-collapse: collapse;}
-            table, th, td{border: 1px solid #cdcdcd;}
-            table th, table td{padding: 5px;text-align: left;}
-            td,th{font-size: x-large;font-family: "Consolas";}
-            .credited{color:green}
-            .debited{color:red}
-        </style>
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>  
         <title>Ledger Page</title>
             <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
@@ -86,19 +75,19 @@
     <body onload="addListL()">
 		<div class="header">
 			<br>
-			<text>Welcome to jRP Mr. <span id="fillU"></span></text>
-			<a href="../MainPage.html"><button id="gotoMp" class="btn" type="button">Go Back</button></a>
-		</div>
+			<text>...jRP</text>
+			<a href="../MainPage.html" id="gotoMp" class="btn" type="button">Go Back</a>
+		</div><br>
         <h1>Ledger: </h1>
             <div>
 			<center>
             <select id="PartyNameL" name="PartyNameL">
                 <option>Choose the Name of the party</option>
             </select>
-            <button type="button" class="btn" style="background-color: #339933;color: aliceblue" onclick="showLedgerR(), showLedgerP(), showLedgerS()">View Ledger Entries</button><br>
+            <a type="button" class="btn" id="generate" onclick="showLedgerR(), showLedgerP(), showLedgerS()">View Ledger Entries</a><br>
             </center>
 			</div>
-            <table id="myTable">
+            <center><table id="myTable">
                 <tr>
                   <th>Amount</th>
                   <th>Wallet type</th>
@@ -106,7 +95,7 @@
                   <th>Record Entry</th>
                 </tr>
 
-              </table>
+              </table></center>
         <script>
             firebase.auth().onAuthStateChanged(function(user)
             {

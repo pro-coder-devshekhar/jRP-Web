@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,100,200,300);
 
 .btn {
   top: 0;
@@ -14,7 +15,11 @@
   letter-spacing: 1px;
   box-shadow: -6px 6px 0 #404040;
   text-decoration: none;
-  border-radius: 15px}
+  border-radius: 15px;
+  border-top-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+	border-top-left-radius: 0px;
+	border-bottom-right-radius: 0px;}
   
 .btn:hover {
   top: 3px;
@@ -80,16 +85,54 @@ a:active.btn:after {
 	top:30px;}
 	
 text{font-size: 26px;
-	margin: 5px;}
-	
-text{font-family: "Pacifico",cursive;}
+	margin: 5px;
+	font-family: "Pacifico",cursive;}
+
+table{box-shadow: 5px 10px 18px #888888;
+	width: 90%;
+	margin: 20px 0;
+	}
+
+body{font: 16px/26px "Raleway", sans-serif;
+	color:black;}
 	
 th{background-color: #ff9980;
 	height: 60px;
-	font-size: 24px;}
+	font-size: 24px;
+	border: 1px solid #cdcdcd;
+	text-align:center;
+	padding: 5px;
+	font-family: "Consolas";
+	font-size:X-large}
+	
+td{border: 1px solid #cdcdcd;
+	text-align:left;
+	padding: 5px;
+	font-family: "Consolas";
+	font-size:X-large}
+	
+.credited{color:green}
+
+.debited{color:red}
 
 input{width: 200px;
 	height: 60px;
 	font-size:18}
 
-option,select{font-size:22px}
+option,select{font-size:22px;
+	height:50px;}
+
+h1{text-align: center;}
+
+#generate{color: black;
+	background-color: #339933;
+	font-size: 18px;
+	padding: 15px;
+	color: aliceblue;
+	font-weight:bold;
+	left:30px;}
+	
+#generate:hover{color: white;
+	background-color: #206020}
+	
+#gotoMp:hover{background-color:#e6ac00}

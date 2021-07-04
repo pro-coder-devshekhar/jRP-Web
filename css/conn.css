@@ -1,7 +1,4 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,100,200,300);
-* {
-  margin: 0;
-  padding: 0; }
 
 a {
   color: #666;
@@ -10,11 +7,13 @@ a {
     color: #4FDA8C; }
 
 input {
-  font: 16px/26px "Raleway", sans-serif; }
+  font: 16px/26px "Raleway", sans-serif;
+  padding: 5px;
+	border: 2px solid gray;
+	margin-top:10px;
+	margin-bottom:10px;}
 
-body {
-  color: #666;
-  background-color: #f1f2f2;
+body {background-color: #f1f2f2;
   font: 16px/26px "Raleway", sans-serif; }
 
 .form-wrap {
@@ -41,7 +40,7 @@ body {
     color: #666; }
 
 .form-wrap .tabs h3 a.active {
-    background-color: #77b300;
+    background-color: #339933;
 	color:black	}
 
 .form-wrap .tabs-content {
@@ -66,7 +65,7 @@ body {
     padding-right: 2em;
     width: 100%; }
 
-  .form-wrap form .button {
+.form-wrap form .button {
     width: 100%;
     padding: .8em 0 10px .8em;
     background-color: #28A55F;
@@ -143,7 +142,11 @@ body {
   letter-spacing: 1px;
   box-shadow: -6px 6px 0 #404040;
   text-decoration: none;
-  border-radius: 15px}
+  border-radius: 15px;
+  border-top-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+	border-top-left-radius: 0px;
+	border-bottom-right-radius: 0px;}
   
 .btn:hover {
   top: 3px;
@@ -210,26 +213,31 @@ a:active.btn:after {
 	font-weight:bolder;}
 	
 text{font-size: 26px;
-	margin: 5px;}
-	
-text{font-family: "Pacifico",cursive;
+	margin: 5px;
+	font-family: "Pacifico",cursive;
 	color:black}
 	
 h1{text-align: center;
 	color:black;}
 
-input,textarea{padding: 5px;
+textarea{padding: 5px;
 	border: 2px solid gray;
 	margin-top:10px;
-	margin-bottom:10px;}
+	margin-bottom:10px;
+	font-size:16px;
+	width:218px}
 	
 option,select{font-size:18px}
 
 #modifyConn,#createConn{color: black;
-	background:#66CC33; 
-	border-radius: 15px;
+	background:#339933; 
 	font-size: 18px;
-	padding: 10px;}
+	padding: 15px;
+	color: aliceblue;
+	font-weight:bold;}
 	
-#modifyConn:hover,#createConn:hover{color: black;
-	background-color: #339933}
+#modifyConn:hover,#createConn:hover{color: white;
+	background-color: #206020}
+	
+#gotoMp:hover{background-color:#e6ac00;
+	color:black}
